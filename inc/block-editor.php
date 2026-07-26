@@ -64,6 +64,14 @@ function menume_register_pattern_category() {
 			'description' => __( 'Patterns for the MenuMe about page.', 'menume' ),
 		)
 	);
+
+	register_block_pattern_category(
+		'menume-demo',
+		array(
+			'label'       => __( 'MenuMe Demo', 'menume' ),
+			'description' => __( 'Patterns for MenuMe demo request pages.', 'menume' ),
+		)
+	);
 }
 add_action( 'init', 'menume_register_pattern_category', 5 );
 
