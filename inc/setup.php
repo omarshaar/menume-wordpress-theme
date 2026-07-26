@@ -89,3 +89,23 @@ function menume_enqueue_home_hero_script() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'menume_enqueue_home_hero_script' );
+
+/**
+ * Load the pricing billing switch.
+ */
+function menume_enqueue_pricing_script() {
+	$script_path = get_theme_file_path( '/assets/js/pricing.js' );
+	$script_ver  = file_exists( $script_path ) ? (string) filemtime( $script_path ) : wp_get_theme()->get( 'Version' );
+
+	wp_enqueue_script(
+		'menume-pricing',
+		get_theme_file_uri( '/assets/js/pricing.js' ),
+		array(),
+		$script_ver,
+		array(
+			'strategy'  => 'defer',
+			'in_footer' => true,
+		)
+	);
+}
+add_action( 'wp_enqueue_scripts', 'menume_enqueue_pricing_script' );

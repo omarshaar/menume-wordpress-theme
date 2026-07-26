@@ -3638,3 +3638,338 @@ body.home .menume-site-header {
 		margin-top: 1.65rem;
 	}
 }
+
+/* Pricing page */
+.menume-pricing {
+	margin: 0;
+	padding: clamp(2.75rem, 6vw, 5.25rem) clamp(1rem, 3vw, 2rem);
+	background:
+		radial-gradient(circle at 15% 10%, rgba(96, 222, 204, 0.14), transparent 30%),
+		#f8faf9;
+	color: #0b1513;
+}
+
+.menume-pricing__inner {
+	width: min(100%, 1240px);
+	max-width: none !important;
+	margin-inline: auto;
+}
+
+.menume-pricing__header {
+	text-align: center;
+}
+
+.menume-pricing__eyebrow,
+.menume-pricing__plan-label {
+	margin: 0;
+	color: #087565;
+	font-size: var(--menume-eyebrow-size);
+	font-weight: 800;
+	line-height: 1.3;
+	letter-spacing: 0.1em;
+}
+
+.menume-pricing__title {
+	max-width: 18ch;
+	margin: 0.75rem auto 0;
+	font-size: var(--menume-section-title-size);
+	font-weight: 680;
+	line-height: 1;
+	letter-spacing: -0.045em;
+}
+
+.menume-pricing__intro {
+	max-width: 65ch;
+	margin: 1.1rem auto 0;
+	color: #526762;
+	font-size: var(--menume-body-large-size);
+	line-height: 1.65;
+}
+
+.menume-pricing__billing-switch {
+	width: fit-content;
+	margin: 1.5rem auto 0;
+	padding: 0.25rem;
+	border: 1px solid rgba(52, 74, 69, 0.15);
+	border-radius: 999px;
+	background: #edf2f0;
+	gap: 0;
+}
+
+.menume-pricing__billing-button .wp-block-button__link {
+	min-width: 7.5rem;
+	padding: 0.65rem 1rem;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	color: #526762;
+	font-size: 0.78rem;
+	font-weight: 700;
+	line-height: 1.2;
+	box-shadow: none;
+	transition:
+		background-color 220ms ease,
+		color 220ms ease,
+		box-shadow 220ms ease;
+}
+
+.menume-pricing__billing-button.is-active .wp-block-button__link {
+	background: #0b1513;
+	color: #fff;
+	box-shadow: 0 5px 14px rgba(11, 21, 19, 0.16);
+}
+
+.menume-pricing__billing-button .wp-block-button__link:hover {
+	background: rgba(255, 255, 255, 0.8);
+	color: #0b1513;
+}
+
+.menume-pricing__billing-button.is-active .wp-block-button__link:hover {
+	background: #0b1513;
+	color: #fff;
+}
+
+.menume-pricing__grid {
+	display: grid;
+	align-items: stretch;
+	margin-top: clamp(2rem, 4vw, 3rem);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.menume-pricing__card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	padding: clamp(1.25rem, 2vw, 1.75rem);
+	border: 1px solid rgba(52, 74, 69, 0.14);
+	border-radius: 1.25rem;
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 14px 45px rgba(24, 66, 58, 0.055);
+}
+
+.menume-pricing__card.is-featured {
+	border-color: rgba(8, 117, 101, 0.45);
+	box-shadow: 0 18px 50px rgba(8, 117, 101, 0.11);
+}
+
+.menume-pricing__card.is-custom {
+	background: #eef4f2;
+}
+
+.menume-pricing__badge {
+	align-self: flex-start;
+	margin: -0.35rem 0 1rem;
+	padding: 0.4rem 0.6rem;
+	border-radius: 999px;
+	background: #dff6f0;
+	color: #087565;
+	font-size: 0.65rem;
+	font-weight: 800;
+	line-height: 1.2;
+	letter-spacing: 0.06em;
+}
+
+.menume-pricing__plan-title {
+	margin: 0.7rem 0 0;
+	color: #0b1513;
+	font-size: clamp(1.45rem, 2.2vw, 1.8rem);
+	font-weight: 680;
+	line-height: 1.1;
+	letter-spacing: -0.035em;
+}
+
+.menume-pricing__plan-description {
+	min-height: 4.8em;
+	margin: 0.85rem 0 0;
+	color: #526762;
+	font-size: var(--menume-body-size);
+	line-height: 1.6;
+}
+
+.menume-pricing__prices,
+.menume-pricing__custom-price {
+	margin-top: 1.35rem;
+	border-top: 1px solid rgba(52, 74, 69, 0.14);
+	border-bottom: 1px solid rgba(52, 74, 69, 0.14);
+}
+
+.menume-pricing__price-row {
+	min-height: 4.35rem;
+	padding-block: 0.75rem;
+	gap: 1rem;
+	transition:
+		opacity 220ms ease,
+		transform 220ms ease;
+}
+
+.menume-pricing__price-row.is-annual {
+	display: none;
+}
+
+.menume-pricing.is-annual .menume-pricing__price-row.is-monthly {
+	display: none;
+}
+
+.menume-pricing.is-annual .menume-pricing__price-row.is-annual {
+	display: flex;
+}
+
+.editor-styles-wrapper .menume-pricing__price-row.is-annual {
+	display: flex;
+	border-top: 1px solid rgba(52, 74, 69, 0.1);
+}
+
+.menume-pricing__price-label,
+.menume-pricing__price {
+	margin: 0;
+}
+
+.menume-pricing__price-label {
+	color: #526762;
+	font-size: 0.78rem;
+	font-weight: 650;
+}
+
+.menume-pricing__price-label small {
+	display: block;
+	margin-top: 0.2rem;
+	color: #81908c;
+	font-size: 0.62rem;
+	font-weight: 500;
+}
+
+.menume-pricing__price {
+	color: #0b1513;
+	font-size: clamp(1.25rem, 2vw, 1.55rem);
+	font-weight: 750;
+	line-height: 1;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.menume-pricing__price small {
+	color: #71817d;
+	font-size: 0.62rem;
+	font-weight: 550;
+}
+
+.menume-pricing__custom-price {
+	display: flex;
+	min-height: 8.7rem;
+	padding-block: 1rem;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.menume-pricing__custom-price p {
+	margin: 0;
+	color: #526762;
+	font-size: 0.82rem;
+	line-height: 1.55;
+}
+
+.menume-pricing__custom-price .menume-pricing__custom-label {
+	margin-bottom: 0.55rem;
+	color: #0b1513;
+	font-size: clamp(1.2rem, 2vw, 1.45rem);
+	font-weight: 750;
+	line-height: 1.1;
+}
+
+.menume-pricing__features {
+	margin: 1.35rem 0 1.5rem;
+	padding: 0;
+	list-style: none;
+}
+
+.menume-pricing__features li {
+	position: relative;
+	margin: 0;
+	padding-left: 1.35rem;
+	color: #435853;
+	font-size: clamp(0.82rem, 1vw, 0.9rem);
+	line-height: 1.5;
+}
+
+.menume-pricing__features li + li {
+	margin-top: 0.65rem;
+}
+
+.menume-pricing__features li::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #07977f;
+	content: "✓";
+	font-weight: 800;
+}
+
+.menume-pricing__actions {
+	width: 100%;
+	margin-top: auto;
+}
+
+.menume-pricing__button,
+.menume-pricing__button .wp-block-button__link {
+	width: 100%;
+}
+
+.menume-pricing__button .wp-block-button__link {
+	box-sizing: border-box;
+	padding: 0.85rem 1rem;
+	border: 1px solid #0b1513;
+	border-radius: 0.75rem;
+	background: #0b1513;
+	color: #fff;
+	font-size: 0.82rem;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+.menume-pricing__button.is-outline .wp-block-button__link {
+	background: transparent;
+	color: #0b1513;
+}
+
+.menume-pricing__button .wp-block-button__link:hover {
+	border-color: #087565;
+	background: #087565;
+	color: #fff;
+}
+
+.menume-pricing__footnote {
+	max-width: 75ch;
+	margin: 1.3rem auto 0;
+	color: #7b8986;
+	font-size: 0.7rem;
+	line-height: 1.55;
+}
+
+@media (max-width: 920px) {
+	.menume-pricing__grid {
+		grid-template-columns: 1fr;
+		max-width: 620px;
+		margin-inline: auto;
+	}
+
+	.menume-pricing__plan-description {
+		min-height: 0;
+	}
+}
+
+@media (max-width: 560px) {
+	.menume-pricing {
+		padding: 1.75rem 0.65rem 2.5rem;
+	}
+
+	.menume-pricing__card {
+		padding: 1.15rem;
+		border-radius: 1rem;
+	}
+
+	.menume-pricing__price-row {
+		min-height: 4rem;
+	}
+}

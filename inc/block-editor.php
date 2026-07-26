@@ -80,6 +80,14 @@ function menume_register_pattern_category() {
 			'description' => __( 'Legal page patterns for MenuMe.', 'menume' ),
 		)
 	);
+
+	register_block_pattern_category(
+		'menume-pricing',
+		array(
+			'label'       => __( 'MenuMe Pricing', 'menume' ),
+			'description' => __( 'Patterns for MenuMe pricing pages.', 'menume' ),
+		)
+	);
 }
 add_action( 'init', 'menume_register_pattern_category', 5 );
 
