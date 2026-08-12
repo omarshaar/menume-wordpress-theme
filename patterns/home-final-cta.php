@@ -21,10 +21,6 @@
 		<h2 class="wp-block-heading has-text-align-center menume-final-cta__title"><?php echo esc_html__( 'MEHR ALS NUR EINE SPEISEKARTE.', 'menume' ); ?></h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"align":"center","className":"menume-final-cta__description"} -->
-		<p class="has-text-align-center menume-final-cta__description"><?php echo esc_html__( 'Website, Speisekarte, Fotos und Reservierungen an einem Ort – in wenigen Minuten startklar, ganz ohne technisches Vorwissen.', 'menume' ); ?></p>
-		<!-- /wp:paragraph -->
-
 		<!-- wp:buttons {"className":"menume-final-cta__buttons","layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
 		<div class="wp-block-buttons menume-final-cta__buttons">
 			<!-- wp:button {"className":"menume-final-cta__primary"} -->

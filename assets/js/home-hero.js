@@ -23,6 +23,18 @@
 		hero.insertBefore( aurora, hero.firstChild );
 	} );
 
+	document.querySelectorAll( '.menume-home-hero__aurora' ).forEach( ( aurora ) => {
+		if ( aurora.querySelector( '.menume-home-hero__aurora-glow' ) ) {
+			return;
+		}
+
+		for ( let index = 1; index <= 7; index += 1 ) {
+			const glow = document.createElement( 'span' );
+			glow.className = `menume-home-hero__aurora-glow menume-home-hero__aurora-glow--${ index }`;
+			aurora.appendChild( glow );
+		}
+	} );
+
 	const prefersReducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 
 	const splitFirstWord = ( text ) => {

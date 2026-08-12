@@ -112,6 +112,23 @@ function menume_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'menume_enqueue_styles' );
 
 /**
+ * Load shared site chrome behavior.
+ */
+function menume_enqueue_site_header_script() {
+	$script_path = get_theme_file_path( '/assets/js/site-header.js' );
+	$script_ver  = file_exists( $script_path ) ? (string) filemtime( $script_path ) : wp_get_theme()->get( 'Version' );
+
+	wp_enqueue_script(
+		'menume-site-header',
+		get_theme_file_uri( '/assets/js/site-header.js' ),
+		array(),
+		$script_ver,
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'menume_enqueue_site_header_script' );
+
+/**
  * Rewrite hardcoded internal links (header/footer nav, CTA buttons, on-page
  * anchors) to the current language's translated page when Polylang is active,
  * since header.html/footer.html are static block markup and cannot resolve
@@ -258,6 +275,216 @@ function menume_translate_template_part_text( $block_content, $block ) {
 	return $map ? strtr( $block_content, $map ) : $block_content;
 }
 add_filter( 'render_block_core/template-part', 'menume_translate_template_part_text', 10, 2 );
+
+/**
+ * Build the MenuMe WhatsApp contact URL from the MenuMe Contact plugin setting.
+ *
+ * @return string
+ */
+function menume_get_whatsapp_url() {
+	$number = get_option( 'menume_contact_whatsapp_number', '' );
+	$number = function_exists( 'menume_contact_sanitize_phone' )
+		? menume_contact_sanitize_phone( $number )
+		: preg_replace( '/\D+/', '', (string) $number );
+
+	if ( ! $number ) {
+		return '';
+	}
+
+	$message = function_exists( 'menume_contact_t' )
+		? menume_contact_t(
+			'Hallo MenuMe, ich interessiere mich für eine digitale Speisekarte.',
+			'Hi MenuMe, I am interested in a digital menu.',
+			'مرحباً Menume، أنا مهتم بالحصول على قائمة طعام رقمية.'
+		)
+		: __( 'Hallo MenuMe, ich interessiere mich für eine digitale Speisekarte.', 'menume' );
+
+	return sprintf( 'https://wa.me/%s?text=%s', $number, rawurlencode( $message ) );
+}
+
+/**
+ * Keep the saved front-page hero CTA synced with the current WhatsApp setting.
+ *
+ * @param string $content Rendered page content.
+ * @return string
+ */
+function menume_replace_home_hero_contact_cta( $content ) {
+	if ( is_admin() || ! is_front_page() || false === strpos( $content, 'menume-home-hero__actions' ) ) {
+		return $content;
+	}
+
+	$whatsapp_url = menume_get_whatsapp_url();
+
+	if ( '' === $whatsapp_url ) {
+		return $content;
+	}
+
+	$label = function_exists( 'menume_contact_t' )
+		? menume_contact_t( 'WhatsApp', 'WhatsApp', 'واتساب' )
+		: __( 'WhatsApp', 'menume' );
+
+	$updated = preg_replace_callback(
+		'~(<div\b[^>]*\bmenume-home-hero__actions\b[^>]*>.*?</div>\s*</div>)~is',
+		function ( $matches ) use ( $whatsapp_url, $label ) {
+			return preg_replace(
+				'~<a\b([^>]*)\bhref=(["\'])(?:/contact/?|https?://[^"\']*/contact/?)(["\'])([^>]*)>(.*?)</a>~is',
+				'<a$1href="' . esc_url( $whatsapp_url ) . '"$4 target="_blank" rel="noopener"><svg class="menume-whatsapp-button__icon icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"></path></svg><span>' . esc_html( $label ) . '</span></a>',
+				$matches[1],
+				1
+			);
+		},
+		$content,
+		1
+	);
+
+	return is_string( $updated ) ? $updated : $content;
+}
+add_filter( 'the_content', 'menume_replace_home_hero_contact_cta', 19 );
+
+/**
+ * Remove the saved final CTA description from all translated front pages.
+ *
+ * @param string $content Rendered page content.
+ * @return string
+ */
+function menume_remove_home_final_cta_description( $content ) {
+	if ( is_admin() || ! is_front_page() || false === strpos( $content, 'menume-final-cta__description' ) ) {
+		return $content;
+	}
+
+	$updated = preg_replace(
+		'~<!--\s*wp:paragraph\b[^>]*"menume-final-cta__description"[\s\S]*?<!--\s*/wp:paragraph\s*-->~i',
+		'',
+		$content
+	);
+
+	if ( $updated === $content ) {
+		$updated = preg_replace( '~<p\b[^>]*\bmenume-final-cta__description\b[^>]*>.*?</p>~is', '', $content );
+	}
+
+	return is_string( $updated ) ? $updated : $content;
+}
+add_filter( 'the_content', 'menume_remove_home_final_cta_description', 21 );
+
+/**
+ * Update the saved Food Image AI style labels on translated front pages.
+ *
+ * @param string $content Rendered page content.
+ * @return string
+ */
+function menume_update_food_enhancer_style_labels( $content ) {
+	if ( is_admin() || ! is_front_page() || false === strpos( $content, 'menume-enhancer__style-option' ) ) {
+		return $content;
+	}
+
+	$lang = function_exists( 'pll_current_language' ) ? pll_current_language() : 'de';
+
+	$labels = array(
+		'de' => array( 'Mobile zu Profi', 'KI-Neuaufbau', 'Farbe & Schärfe' ),
+		'en' => array( 'Mobile to Pro', 'AI Rebuild', 'Color & Sharpness' ),
+		'ar' => array( 'من الموبايل للاحتراف', 'إعادة بناء بالذكاء', 'ألوان ووضوح' ),
+	);
+
+	$active_labels = $labels[ $lang ] ?? $labels['de'];
+	$index         = 0;
+
+	$updated = preg_replace_callback(
+		'~(<div\b[^>]*\bmenume-enhancer__style-option\b[^>]*>\s*<a\b[^>]*>)(.*?)(</a>\s*</div>)~is',
+		function ( $matches ) use ( $active_labels, &$index ) {
+			if ( $index >= count( $active_labels ) ) {
+				return $matches[0];
+			}
+
+			$label = $active_labels[ $index ];
+			$index++;
+
+			return $matches[1] . esc_html( $label ) . $matches[3];
+		},
+		$content,
+		3
+	);
+
+	return is_string( $updated ) ? $updated : $content;
+}
+add_filter( 'the_content', 'menume_update_food_enhancer_style_labels', 22 );
+
+/**
+ * Keep the saved front-page process copy short and service-led.
+ *
+ * @param string $content Rendered page content.
+ * @return string
+ */
+function menume_update_process_step_copy( $content ) {
+	if ( is_admin() || ! is_front_page() || false === strpos( $content, 'menume-process__steps' ) ) {
+		return $content;
+	}
+
+	$lang = function_exists( 'pll_current_language' ) ? pll_current_language() : 'de';
+
+	$copy = array(
+		'de' => array(
+			'lead'         => 'Melde dich bei uns, wir richten deinen digitalen Auftritt ein und bringen dich schnell online.',
+			'statuses'     => array( 'KONTAKT', 'EINRICHTEN', 'VERÖFFENTLICHEN' ),
+			'titles'       => array( 'Kontakt aufnehmen', 'Auftritt einrichten', 'Live gehen' ),
+			'descriptions' => array(
+				'Wir erstellen deine Website und Speisekarte schnell startklar.',
+				'Speisekarte, Fotos und Bio-Seite im passenden Look.',
+				'QR-Code teilen, online gehen, Änderungen sofort sichtbar.',
+			),
+		),
+		'en' => array(
+			'lead'         => 'Contact us, we set up your digital presence and get you online quickly.',
+			'statuses'     => array( 'CONTACT', 'SETUP', 'PUBLISH' ),
+			'titles'       => array( 'Get in touch', 'Set up your presence', 'Go live' ),
+			'descriptions' => array(
+				'We quickly prepare your website and digital menu.',
+				'Menu, photos and bio page in your look.',
+				'Share the QR code and update anytime.',
+			),
+		),
+		'ar' => array(
+			'lead'         => 'تواصل معنا، نجهز حضورك الرقمي ونطلقه بسرعة.',
+			'statuses'     => array( 'تواصل', 'تجهيز', 'نشر' ),
+			'titles'       => array( 'تواصل معنا', 'نجهز حضورك', 'انطلق أونلاين' ),
+			'descriptions' => array(
+				'نجهز موقعك وقائمة الطعام بسرعة.',
+				'قائمة، صور وصفحة بايو بهويتك.',
+				'شارك QR وعدل كل شيء فوراً.',
+			),
+		),
+	);
+
+	$active = $copy[ $lang ] ?? $copy['de'];
+
+	$content = preg_replace(
+		'~(<p\b[^>]*\bmenume-process__lead\b[^>]*>)(.*?)(</p>)~is',
+		'$1' . esc_html( $active['lead'] ) . '$3',
+		$content,
+		1
+	);
+
+	foreach ( array( 'status' => 'statuses', 'step-title' => 'titles', 'description' => 'descriptions' ) as $class_suffix => $copy_key ) {
+		$index   = 0;
+		$content = preg_replace_callback(
+			'~(<(?:p|h3)\b[^>]*\bmenume-process__' . preg_quote( $class_suffix, '~' ) . '\b[^>]*>)(.*?)(</(?:p|h3)>)~is',
+			function ( $matches ) use ( $active, $copy_key, &$index ) {
+				if ( ! isset( $active[ $copy_key ][ $index ] ) ) {
+					return $matches[0];
+				}
+
+				$text = $active[ $copy_key ][ $index ];
+				$index++;
+
+				return $matches[1] . esc_html( $text ) . $matches[3];
+			},
+			$content,
+			3
+		);
+	}
+
+	return $content;
+}
+add_filter( 'the_content', 'menume_update_process_step_copy', 23 );
 
 /**
  * Split the front-page hero title into a lifted first word and a typewritten
@@ -415,6 +642,20 @@ function menume_enqueue_home_hero_script() {
 		get_theme_file_uri( '/assets/js/home-ai-support.js' ),
 		array(),
 		$ai_support_script_ver,
+		array(
+			'strategy'  => 'defer',
+			'in_footer' => true,
+		)
+	);
+
+	$process_script_path = get_theme_file_path( '/assets/js/home-process.js' );
+	$process_script_ver  = file_exists( $process_script_path ) ? (string) filemtime( $process_script_path ) : wp_get_theme()->get( 'Version' );
+
+	wp_enqueue_script(
+		'menume-home-process',
+		get_theme_file_uri( '/assets/js/home-process.js' ),
+		array(),
+		$process_script_ver,
 		array(
 			'strategy'  => 'defer',
 			'in_footer' => true,

@@ -24,7 +24,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"align":"center","className":"menume-process__lead"} -->
-			<p class="has-text-align-center menume-process__lead"><?php echo esc_html__( 'Registrieren, digitalen Auftritt einrichten und für deine Gäste live gehen – ganz ohne technisches Vorwissen.', 'menume' ); ?></p>
+			<p class="has-text-align-center menume-process__lead"><?php echo esc_html__( 'Melde dich bei uns, wir richten deinen digitalen Auftritt ein und bringen dich schnell online.', 'menume' ); ?></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
@@ -35,18 +35,18 @@
 			<div class="wp-block-group menume-process__step menume-process__step--import">
 				<!-- wp:group {"className":"menume-process__number-wrap","layout":{"type":"default"}} -->
 				<div class="wp-block-group menume-process__number-wrap">
-					<!-- wp:paragraph {"className":"menume-process__number"} --><p class="menume-process__number">01</p><!-- /wp:paragraph -->
-					<!-- wp:paragraph {"className":"menume-process__status"} --><p class="menume-process__status"><?php echo esc_html__( 'ANLEGEN', 'menume' ); ?></p><!-- /wp:paragraph -->
+					<!-- wp:paragraph {"className":"menume-process__number"} --><p class="menume-process__number">00</p><!-- /wp:paragraph -->
+					<!-- wp:paragraph {"className":"menume-process__status"} --><p class="menume-process__status"><?php echo esc_html__( 'KONTAKT', 'menume' ); ?></p><!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
 
 				<!-- wp:group {"className":"menume-process__copy","layout":{"type":"default"}} -->
 				<div class="wp-block-group menume-process__copy">
 					<!-- wp:heading {"level":3,"className":"menume-process__step-title"} -->
-					<h3 class="wp-block-heading menume-process__step-title"><?php echo esc_html__( 'Restaurant registrieren', 'menume' ); ?></h3>
+					<h3 class="wp-block-heading menume-process__step-title"><?php echo esc_html__( 'Kontakt aufnehmen', 'menume' ); ?></h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph {"className":"menume-process__description"} -->
-					<p class="menume-process__description"><?php echo esc_html__( 'Lege dein Konto an und übernimm deine Speisekarte per Import oder Schritt für Schritt – in wenigen Minuten startklar.', 'menume' ); ?></p>
+					<p class="menume-process__description"><?php echo esc_html__( 'Wir erstellen deine Website und Speisekarte schnell startklar.', 'menume' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -57,7 +57,7 @@
 			<div class="wp-block-group menume-process__step menume-process__step--edit">
 				<!-- wp:group {"className":"menume-process__number-wrap","layout":{"type":"default"}} -->
 				<div class="wp-block-group menume-process__number-wrap">
-					<!-- wp:paragraph {"className":"menume-process__number"} --><p class="menume-process__number">02</p><!-- /wp:paragraph -->
+					<!-- wp:paragraph {"className":"menume-process__number"} --><p class="menume-process__number">00</p><!-- /wp:paragraph -->
 					<!-- wp:paragraph {"className":"menume-process__status"} --><p class="menume-process__status"><?php echo esc_html__( 'EINRICHTEN', 'menume' ); ?></p><!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -65,10 +65,10 @@
 				<!-- wp:group {"className":"menume-process__copy","layout":{"type":"default"}} -->
 				<div class="wp-block-group menume-process__copy">
 					<!-- wp:heading {"level":3,"className":"menume-process__step-title"} -->
-					<h3 class="wp-block-heading menume-process__step-title"><?php echo esc_html__( 'Digitalen Auftritt einrichten', 'menume' ); ?></h3>
+					<h3 class="wp-block-heading menume-process__step-title"><?php echo esc_html__( 'Auftritt einrichten', 'menume' ); ?></h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph {"className":"menume-process__description"} -->
-					<p class="menume-process__description"><?php echo esc_html__( 'Speisekarte, Fotos, Website und Bio-Seite mit KI gestalten – alles an einem Ort, in deinem eigenen Look.', 'menume' ); ?></p>
+					<p class="menume-process__description"><?php echo esc_html__( 'Speisekarte, Fotos und Bio-Seite im passenden Look.', 'menume' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -79,7 +79,7 @@
 			<div class="wp-block-group menume-process__step menume-process__step--publish">
 				<!-- wp:group {"className":"menume-process__number-wrap","layout":{"type":"default"}} -->
 				<div class="wp-block-group menume-process__number-wrap">
-					<!-- wp:paragraph {"className":"menume-process__number"} --><p class="menume-process__number">03</p><!-- /wp:paragraph -->
+					<!-- wp:paragraph {"className":"menume-process__number"} --><p class="menume-process__number">00</p><!-- /wp:paragraph -->
 					<!-- wp:paragraph {"className":"menume-process__status"} --><p class="menume-process__status"><?php echo esc_html__( 'VERÖFFENTLICHEN', 'menume' ); ?></p><!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -87,10 +87,10 @@
 				<!-- wp:group {"className":"menume-process__copy","layout":{"type":"default"}} -->
 				<div class="wp-block-group menume-process__copy">
 					<!-- wp:heading {"level":3,"className":"menume-process__step-title"} -->
-					<h3 class="wp-block-heading menume-process__step-title"><?php echo esc_html__( 'Live gehen und Gäste empfangen', 'menume' ); ?></h3>
+					<h3 class="wp-block-heading menume-process__step-title"><?php echo esc_html__( 'Live gehen', 'menume' ); ?></h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph {"className":"menume-process__description"} -->
-					<p class="menume-process__description"><?php echo esc_html__( 'QR-Code auf den Tisch, Website online, Reservierungen aktiv – und jede spätere Änderung ist sofort sichtbar.', 'menume' ); ?></p>
+					<p class="menume-process__description"><?php echo esc_html__( 'QR-Code teilen, online gehen, Änderungen sofort sichtbar.', 'menume' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->

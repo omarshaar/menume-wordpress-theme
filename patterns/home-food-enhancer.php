@@ -73,13 +73,13 @@
 				<!-- wp:buttons {"className":"menume-enhancer__style-options","layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
 				<div class="wp-block-buttons menume-enhancer__style-options">
 					<!-- wp:button {"className":"menume-enhancer__style-option is-active"} -->
-					<div class="wp-block-button menume-enhancer__style-option is-active"><a class="wp-block-button__link wp-element-button" href="#food-image-ai"><?php echo esc_html__( 'Natürlich', 'menume' ); ?></a></div>
+					<div class="wp-block-button menume-enhancer__style-option is-active"><a class="wp-block-button__link wp-element-button" href="#food-image-ai"><?php echo esc_html__( 'Mobile zu Profi', 'menume' ); ?></a></div>
 					<!-- /wp:button -->
 					<!-- wp:button {"className":"menume-enhancer__style-option"} -->
-					<div class="wp-block-button menume-enhancer__style-option"><a class="wp-block-button__link wp-element-button" href="#food-image-ai"><?php echo esc_html__( 'Warm & Appetitlich', 'menume' ); ?></a></div>
+					<div class="wp-block-button menume-enhancer__style-option"><a class="wp-block-button__link wp-element-button" href="#food-image-ai"><?php echo esc_html__( 'KI-Neuaufbau', 'menume' ); ?></a></div>
 					<!-- /wp:button -->
 					<!-- wp:button {"className":"menume-enhancer__style-option"} -->
-					<div class="wp-block-button menume-enhancer__style-option"><a class="wp-block-button__link wp-element-button" href="#food-image-ai"><?php echo esc_html__( 'Studio Look', 'menume' ); ?></a></div>
+					<div class="wp-block-button menume-enhancer__style-option"><a class="wp-block-button__link wp-element-button" href="#food-image-ai"><?php echo esc_html__( 'Farbe & Schärfe', 'menume' ); ?></a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
