@@ -2,7 +2,7 @@
 /**
  * Title: Pricing Plans
  * Slug: menume/pricing-plans
- * Description: Three clear MenuMe pricing plans with monthly and annual prices.
+ * Description: MenuMe pricing plans (Basis, Premium, Individuell) with monthly/annual prices and optional sale pricing via the MenuMe Pricing plugin.
  * Categories: menume-pricing
  * Keywords: pricing, preise, plans, tarife, menume
  * Inserter: true
@@ -45,16 +45,12 @@
 		<div class="wp-block-group menume-pricing__grid">
 			<!-- wp:group {"className":"menume-pricing__card","metadata":{"name":"Basis Plan"},"layout":{"type":"default"}} -->
 			<div class="wp-block-group menume-pricing__card">
-				<!-- wp:paragraph {"className":"menume-pricing__plan-label"} -->
-				<p class="menume-pricing__plan-label"><?php echo esc_html__( 'BASIS', 'menume' ); ?></p>
-				<!-- /wp:paragraph -->
-
 				<!-- wp:heading {"level":2,"className":"menume-pricing__plan-title"} -->
-				<h2 class="wp-block-heading menume-pricing__plan-title"><?php echo esc_html__( 'Deine digitale Speisekarte', 'menume' ); ?></h2>
+				<h2 class="wp-block-heading menume-pricing__plan-title"><?php echo esc_html__( 'Basis', 'menume' ); ?></h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"menume-pricing__plan-description"} -->
-				<p class="menume-pricing__plan-description"><?php echo esc_html__( 'Alles Wichtige, um dein Menü modern, übersichtlich und einfach aktuell zu halten.', 'menume' ); ?></p>
+				<p class="menume-pricing__plan-description"><?php echo esc_html__( 'Deine digitale Speisekarte als eigene Website mit QR-Code für deine Gäste.', 'menume' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:group {"className":"menume-pricing__prices","layout":{"type":"default"}} -->
@@ -62,11 +58,11 @@
 					<!-- wp:group {"className":"menume-pricing__price-row is-monthly","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 					<div class="wp-block-group menume-pricing__price-row is-monthly">
 						<!-- wp:paragraph {"className":"menume-pricing__price-label"} -->
-						<p class="menume-pricing__price-label"><?php echo esc_html__( 'Monatsabo', 'menume' ); ?></p>
+						<p class="menume-pricing__price-label"><?php echo esc_html__( 'Monatsabo', 'menume' ); ?>[menume_price_if_sale plan="basis" cycle="monthly"] <span class="menume-pricing__price-offer"><?php echo esc_html__( 'Angebot', 'menume' ); ?></span>[/menume_price_if_sale]</p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"className":"menume-pricing__price"} -->
-						<p class="menume-pricing__price">23,98 € <small><?php echo esc_html__( '/ Monat', 'menume' ); ?></small></p>
+						<p class="menume-pricing__price">[menume_price_if_sale plan="basis" cycle="monthly"]<span class="menume-pricing__price-was">[menume_price_was plan="basis" cycle="monthly"]</span> [/menume_price_if_sale]<span class="menume-pricing__price-now">[menume_price plan="basis" cycle="monthly"]</span> <small><?php echo esc_html__( '/ Monat', 'menume' ); ?></small></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -74,11 +70,11 @@
 					<!-- wp:group {"className":"menume-pricing__price-row is-annual","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 					<div class="wp-block-group menume-pricing__price-row is-annual">
 						<!-- wp:paragraph {"className":"menume-pricing__price-label"} -->
-						<p class="menume-pricing__price-label"><?php echo esc_html__( 'Jahresabo', 'menume' ); ?><small><?php echo esc_html__( 'entspricht 19,99 € / Monat', 'menume' ); ?></small></p>
+						<p class="menume-pricing__price-label"><?php echo esc_html__( 'Jahresabo', 'menume' ); ?>[menume_price_if_sale plan="basis" cycle="yearly"] <span class="menume-pricing__price-offer"><?php echo esc_html__( 'Angebot', 'menume' ); ?></span>[/menume_price_if_sale]</p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"className":"menume-pricing__price"} -->
-						<p class="menume-pricing__price">239,88 € <small><?php echo esc_html__( '/ Jahr', 'menume' ); ?></small></p>
+						<p class="menume-pricing__price">[menume_price_if_sale plan="basis" cycle="yearly"]<span class="menume-pricing__price-was">[menume_price_was plan="basis" cycle="yearly"]</span> [/menume_price_if_sale]<span class="menume-pricing__price-now">[menume_price plan="basis" cycle="yearly"]</span> <small><?php echo esc_html__( '/ Jahr', 'menume' ); ?></small></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -87,11 +83,9 @@
 
 				<!-- wp:list {"className":"menume-pricing__features"} -->
 				<ul class="wp-block-list menume-pricing__features">
-					<!-- wp:list-item --><li><?php echo esc_html__( 'Digitale Speisekarte einfach bearbeiten', 'menume' ); ?></li><!-- /wp:list-item -->
-					<!-- wp:list-item --><li><?php echo esc_html__( 'Mehrsprachige Inhalte', 'menume' ); ?></li><!-- /wp:list-item -->
-					<!-- wp:list-item --><li><?php echo esc_html__( 'Allergene und Eigenschaften verwalten', 'menume' ); ?></li><!-- /wp:list-item -->
-					<!-- wp:list-item --><li><?php echo esc_html__( 'Design passend zu deiner Marke', 'menume' ); ?></li><!-- /wp:list-item -->
-					<!-- wp:list-item --><li><?php echo esc_html__( 'Food-Fotos mit KI verfeinern', 'menume' ); ?></li><!-- /wp:list-item -->
+					<!-- wp:list-item --><li><?php echo esc_html__( 'Digitale Speisekarte als eigene Website', 'menume' ); ?></li><!-- /wp:list-item -->
+					<!-- wp:list-item --><li><?php echo esc_html__( 'QR-Code zum Teilen mit deinen Gästen', 'menume' ); ?></li><!-- /wp:list-item -->
+					<!-- wp:list-item --><li><?php echo esc_html__( 'Inhalte jederzeit selbst aktualisieren', 'menume' ); ?></li><!-- /wp:list-item -->
 				</ul>
 				<!-- /wp:list -->
 
@@ -105,22 +99,18 @@
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"className":"menume-pricing__card is-featured","metadata":{"name":"Support Plan"},"layout":{"type":"default"}} -->
+			<!-- wp:group {"className":"menume-pricing__card is-featured","metadata":{"name":"Premium Plan"},"layout":{"type":"default"}} -->
 			<div class="wp-block-group menume-pricing__card is-featured">
 				<!-- wp:paragraph {"className":"menume-pricing__badge"} -->
-				<p class="menume-pricing__badge"><?php echo esc_html__( 'MIT PERSÖNLICHER UNTERSTÜTZUNG', 'menume' ); ?></p>
-				<!-- /wp:paragraph -->
-
-				<!-- wp:paragraph {"className":"menume-pricing__plan-label"} -->
-				<p class="menume-pricing__plan-label"><?php echo esc_html__( 'SUPPORT', 'menume' ); ?></p>
+				<p class="menume-pricing__badge"><?php echo esc_html__( 'EMPFOHLEN', 'menume' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"level":2,"className":"menume-pricing__plan-title"} -->
-				<h2 class="wp-block-heading menume-pricing__plan-title"><?php echo esc_html__( 'MenuMe mit Support', 'menume' ); ?></h2>
+				<h2 class="wp-block-heading menume-pricing__plan-title"><?php echo esc_html__( 'Premium', 'menume' ); ?></h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"menume-pricing__plan-description"} -->
-				<p class="menume-pricing__plan-description"><?php echo esc_html__( 'Die komplette Speisekarte plus persönliche Hilfe, wenn du Unterstützung brauchst.', 'menume' ); ?></p>
+				<p class="menume-pricing__plan-description"><?php echo esc_html__( 'Alle MenuMe-Funktionen: mehrsprachig, Allergene, KI-Fotos und persönlicher Support.', 'menume' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:group {"className":"menume-pricing__prices","layout":{"type":"default"}} -->
@@ -128,11 +118,11 @@
 					<!-- wp:group {"className":"menume-pricing__price-row is-monthly","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 					<div class="wp-block-group menume-pricing__price-row is-monthly">
 						<!-- wp:paragraph {"className":"menume-pricing__price-label"} -->
-						<p class="menume-pricing__price-label"><?php echo esc_html__( 'Monatsabo', 'menume' ); ?></p>
+						<p class="menume-pricing__price-label"><?php echo esc_html__( 'Monatsabo', 'menume' ); ?>[menume_price_if_sale plan="premium" cycle="monthly"] <span class="menume-pricing__price-offer"><?php echo esc_html__( 'Angebot', 'menume' ); ?></span>[/menume_price_if_sale]</p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"className":"menume-pricing__price"} -->
-						<p class="menume-pricing__price">35,98 € <small><?php echo esc_html__( '/ Monat', 'menume' ); ?></small></p>
+						<p class="menume-pricing__price">[menume_price_if_sale plan="premium" cycle="monthly"]<span class="menume-pricing__price-was">[menume_price_was plan="premium" cycle="monthly"]</span> [/menume_price_if_sale]<span class="menume-pricing__price-now">[menume_price plan="premium" cycle="monthly"]</span> <small><?php echo esc_html__( '/ Monat', 'menume' ); ?></small></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -140,11 +130,11 @@
 					<!-- wp:group {"className":"menume-pricing__price-row is-annual","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 					<div class="wp-block-group menume-pricing__price-row is-annual">
 						<!-- wp:paragraph {"className":"menume-pricing__price-label"} -->
-						<p class="menume-pricing__price-label"><?php echo esc_html__( 'Jahresabo', 'menume' ); ?><small><?php echo esc_html__( 'entspricht 31,99 € / Monat', 'menume' ); ?></small></p>
+						<p class="menume-pricing__price-label"><?php echo esc_html__( 'Jahresabo', 'menume' ); ?>[menume_price_if_sale plan="premium" cycle="yearly"] <span class="menume-pricing__price-offer"><?php echo esc_html__( 'Angebot', 'menume' ); ?></span>[/menume_price_if_sale]</p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"className":"menume-pricing__price"} -->
-						<p class="menume-pricing__price">383,88 € <small><?php echo esc_html__( '/ Jahr', 'menume' ); ?></small></p>
+						<p class="menume-pricing__price">[menume_price_if_sale plan="premium" cycle="yearly"]<span class="menume-pricing__price-was">[menume_price_was plan="premium" cycle="yearly"]</span> [/menume_price_if_sale]<span class="menume-pricing__price-now">[menume_price plan="premium" cycle="yearly"]</span> <small><?php echo esc_html__( '/ Jahr', 'menume' ); ?></small></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -154,16 +144,18 @@
 				<!-- wp:list {"className":"menume-pricing__features"} -->
 				<ul class="wp-block-list menume-pricing__features">
 					<!-- wp:list-item --><li><?php echo esc_html__( 'Alle Funktionen aus dem Basis-Plan', 'menume' ); ?></li><!-- /wp:list-item -->
+					<!-- wp:list-item --><li><?php echo esc_html__( 'Mehrsprachige Inhalte', 'menume' ); ?></li><!-- /wp:list-item -->
+					<!-- wp:list-item --><li><?php echo esc_html__( 'Allergene und Eigenschaften verwalten', 'menume' ); ?></li><!-- /wp:list-item -->
+					<!-- wp:list-item --><li><?php echo esc_html__( 'Design passend zu deiner Marke', 'menume' ); ?></li><!-- /wp:list-item -->
+					<!-- wp:list-item --><li><?php echo esc_html__( 'Food-Fotos mit KI verfeinern', 'menume' ); ?></li><!-- /wp:list-item -->
 					<!-- wp:list-item --><li><?php echo esc_html__( 'Persönliche technische Unterstützung', 'menume' ); ?></li><!-- /wp:list-item -->
-					<!-- wp:list-item --><li><?php echo esc_html__( 'Hilfe bei Einrichtung und Anpassungen', 'menume' ); ?></li><!-- /wp:list-item -->
-					<!-- wp:list-item --><li><?php echo esc_html__( 'Direkter Ansprechpartner bei Fragen', 'menume' ); ?></li><!-- /wp:list-item -->
 				</ul>
 				<!-- /wp:list -->
 
 				<!-- wp:buttons {"className":"menume-pricing__actions"} -->
 				<div class="wp-block-buttons menume-pricing__actions">
 					<!-- wp:button {"width":100,"className":"menume-pricing__button"} -->
-					<div class="wp-block-button has-custom-width wp-block-button__width-100 menume-pricing__button"><a class="wp-block-button__link wp-element-button" href="/demo"><?php echo esc_html__( 'Mit Support starten', 'menume' ); ?> →</a></div>
+					<div class="wp-block-button has-custom-width wp-block-button__width-100 menume-pricing__button"><a class="wp-block-button__link wp-element-button" href="/demo"><?php echo esc_html__( 'Premium starten', 'menume' ); ?> →</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -172,12 +164,8 @@
 
 			<!-- wp:group {"className":"menume-pricing__card is-custom","metadata":{"name":"Individueller Plan"},"layout":{"type":"default"}} -->
 			<div class="wp-block-group menume-pricing__card is-custom">
-				<!-- wp:paragraph {"className":"menume-pricing__plan-label"} -->
-				<p class="menume-pricing__plan-label"><?php echo esc_html__( 'INDIVIDUELL', 'menume' ); ?></p>
-				<!-- /wp:paragraph -->
-
 				<!-- wp:heading {"level":2,"className":"menume-pricing__plan-title"} -->
-				<h2 class="wp-block-heading menume-pricing__plan-title"><?php echo esc_html__( 'Eine Lösung, die zu dir passt', 'menume' ); ?></h2>
+				<h2 class="wp-block-heading menume-pricing__plan-title"><?php echo esc_html__( 'Individuell', 'menume' ); ?></h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"menume-pricing__plan-description"} -->
@@ -218,7 +206,7 @@
 		<!-- /wp:group -->
 
 		<!-- wp:paragraph {"align":"center","className":"menume-pricing__footnote"} -->
-		<p class="has-text-align-center menume-pricing__footnote"><?php echo esc_html__( 'Beim Jahresabo wird der angezeigte Gesamtbetrag einmal jährlich abgerechnet. Angaben zur Umsatzsteuer und zu den Vertragsbedingungen bitte vor Veröffentlichung ergänzen.', 'menume' ); ?></p>
+		<p class="has-text-align-center menume-pricing__footnote"><?php echo esc_html__( 'Beim Jahresabo wird der angezeigte Gesamtbetrag einmal jährlich abgerechnet. Alle Preise sind Endpreise ohne gesonderten Ausweis von Umsatzsteuer (Kleinunternehmer gemäß § 19 UStG).', 'menume' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->

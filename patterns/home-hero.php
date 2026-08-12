@@ -11,6 +11,10 @@
 
 <!-- wp:group {"align":"full","tagName":"section","className":"menume-home-hero","metadata":{"name":"Home Hero"},"layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull menume-home-hero">
+	<!-- wp:html -->
+	<div class="menume-home-hero__aurora alignfull" aria-hidden="true"></div>
+	<!-- /wp:html -->
+
 	<!-- wp:group {"align":"wide","className":"menume-home-hero__inner","layout":{"type":"constrained"}} -->
 	<div class="wp-block-group alignwide menume-home-hero__inner">
 		<!-- wp:heading {"textAlign":"center","level":1,"className":"menume-home-hero__title"} -->
@@ -18,13 +22,17 @@
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"align":"center","className":"menume-home-hero__subtitle"} -->
-		<p class="has-text-align-center menume-home-hero__subtitle"><?php echo esc_html__( 'Modern präsentieren, sofort aktualisieren und auf jedem Smartphone überzeugen', 'menume' ); ?></p>
+		<p class="has-text-align-center menume-home-hero__subtitle"><?php echo esc_html__( 'Verwalte Speisekarte, Inhalte, Fotos und deine Bio-Seite an einem Ort – mit KI gestaltet, um mehr Gäste zu gewinnen und den Umsatz zu steigern', 'menume' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons {"className":"menume-home-hero__actions","layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons menume-home-hero__actions">
 			<!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#demo"><?php echo esc_html__( 'Demo', 'menume' ); ?></a></div>
+			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/demo"><?php echo esc_html__( 'Demo anfragen', 'menume' ); ?></a></div>
+			<!-- /wp:button -->
+
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/contact"><?php echo esc_html__( 'Kontakt', 'menume' ); ?></a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -38,7 +46,7 @@
 					<!-- wp:group {"className":"menume-home-hero__dashboard","metadata":{"name":"Admin screenshot 1"},"layout":{"type":"default"}} -->
 					<div class="wp-block-group menume-home-hero__dashboard">
 						<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"menume-home-hero__dashboard-image"} -->
-						<figure class="wp-block-image size-full menume-home-hero__dashboard-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/dashboard-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'Replace with admin screenshot 1', 'menume' ); ?>"/><figcaption class="wp-element-caption"><?php echo esc_html__( 'Alles zentral verwalten – einfach, schnell und übersichtlich.', 'menume' ); ?></figcaption></figure>
+						<figure class="wp-block-image size-full menume-home-hero__dashboard-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/dashboard-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'MenuMe Dashboard zur Verwaltung der digitalen Speisekarte', 'menume' ); ?>" loading="eager" fetchpriority="high"/><figcaption class="wp-element-caption"><?php echo esc_html__( 'Deine Speisekarte ist startklar – Gäste scannen und sehen sie sofort auf dem Handy.', 'menume' ); ?></figcaption></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:group -->
@@ -46,7 +54,7 @@
 					<!-- wp:group {"className":"menume-home-hero__phone","metadata":{"name":"Mobile screenshot 1"},"layout":{"type":"default"}} -->
 					<div class="wp-block-group menume-home-hero__phone">
 						<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"menume-home-hero__phone-image"} -->
-						<figure class="wp-block-image size-full menume-home-hero__phone-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/phone-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'Replace with mobile screenshot 1', 'menume' ); ?>"/></figure>
+						<figure class="wp-block-image size-full menume-home-hero__phone-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/phone-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'Digitale Speisekarte von MenuMe auf dem Smartphone', 'menume' ); ?>" loading="eager" fetchpriority="high"/></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:group -->
@@ -58,7 +66,7 @@
 					<!-- wp:group {"className":"menume-home-hero__dashboard","metadata":{"name":"Admin screenshot 2"},"layout":{"type":"default"}} -->
 					<div class="wp-block-group menume-home-hero__dashboard">
 						<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"menume-home-hero__dashboard-image"} -->
-						<figure class="wp-block-image size-full menume-home-hero__dashboard-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/dashboard-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'Replace with admin screenshot 2', 'menume' ); ?>"/><figcaption class="wp-element-caption"><?php echo esc_html__( 'Änderungen veröffentlichen und sofort für Gäste sichtbar machen.', 'menume' ); ?></figcaption></figure>
+						<figure class="wp-block-image size-full menume-home-hero__dashboard-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/dashboard-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'MenuMe KI-Tool zur Optimierung von Food-Fotos', 'menume' ); ?>"/><figcaption class="wp-element-caption"><?php echo esc_html__( 'Beeindruckende Foodfotos in Sekunden – ganz ohne Fotostudio.', 'menume' ); ?></figcaption></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:group -->
@@ -66,7 +74,7 @@
 					<!-- wp:group {"className":"menume-home-hero__phone","metadata":{"name":"Mobile screenshot 2"},"layout":{"type":"default"}} -->
 					<div class="wp-block-group menume-home-hero__phone">
 						<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"menume-home-hero__phone-image"} -->
-						<figure class="wp-block-image size-full menume-home-hero__phone-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/phone-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'Replace with mobile screenshot 2', 'menume' ); ?>"/></figure>
+						<figure class="wp-block-image size-full menume-home-hero__phone-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/phone-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'Mit KI verbessertes Food-Foto in der MenuMe App', 'menume' ); ?>"/></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:group -->
@@ -78,7 +86,7 @@
 					<!-- wp:group {"className":"menume-home-hero__dashboard","metadata":{"name":"Admin screenshot 3"},"layout":{"type":"default"}} -->
 					<div class="wp-block-group menume-home-hero__dashboard">
 						<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"menume-home-hero__dashboard-image"} -->
-						<figure class="wp-block-image size-full menume-home-hero__dashboard-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/dashboard-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'Replace with admin screenshot 3', 'menume' ); ?>"/><figcaption class="wp-element-caption"><?php echo esc_html__( 'Eine moderne Speisekarte, die auf jedem Smartphone überzeugt.', 'menume' ); ?></figcaption></figure>
+						<figure class="wp-block-image size-full menume-home-hero__dashboard-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/dashboard-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'MenuMe Verwaltung für Website und Tischreservierungen im Dashboard', 'menume' ); ?>"/><figcaption class="wp-element-caption"><?php echo esc_html__( 'Deine Website und Tischreservierungen laufen automatisch mit.', 'menume' ); ?></figcaption></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:group -->
@@ -86,7 +94,7 @@
 					<!-- wp:group {"className":"menume-home-hero__phone","metadata":{"name":"Mobile screenshot 3"},"layout":{"type":"default"}} -->
 					<div class="wp-block-group menume-home-hero__phone">
 						<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"menume-home-hero__phone-image"} -->
-						<figure class="wp-block-image size-full menume-home-hero__phone-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/phone-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'Replace with mobile screenshot 3', 'menume' ); ?>"/></figure>
+						<figure class="wp-block-image size-full menume-home-hero__phone-image"><img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/phone-placeholder.svg' ) ); ?>" alt="<?php echo esc_attr__( 'Restaurant-Website und Tischreservierung mit MenuMe auf dem Smartphone', 'menume' ); ?>"/></figure>
 						<!-- /wp:image -->
 					</div>
 					<!-- /wp:group -->

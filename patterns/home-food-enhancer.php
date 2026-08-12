@@ -63,11 +63,11 @@
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"level":2,"className":"menume-enhancer__picker-title"} -->
-				<h2 class="wp-block-heading menume-enhancer__picker-title"><?php echo esc_html__( 'DEIN FOTO. DEIN LOOK.', 'menume' ); ?></h2>
+				<h2 class="wp-block-heading menume-enhancer__picker-title"><?php echo esc_html__( 'PROFI-FOTOS. OHNE FOTOSTUDIO.', 'menume' ); ?></h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"menume-enhancer__picker-copy"} -->
-				<p class="menume-enhancer__picker-copy"><?php echo esc_html__( 'Verbessere Licht, Farben und Bildwirkung mit KI. Wähle den Stil, der am besten zu deinem Restaurant passt.', 'menume' ); ?></p>
+				<p class="menume-enhancer__picker-copy"><?php echo esc_html__( 'Ein Handyfoto reicht: MenuMe verwandelt es in ein professionelles Foodfoto – ganz ohne Fotostudio, Fotograf oder teure Shootings. Wähle den Stil, der zu deinem Restaurant passt.', 'menume' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons {"className":"menume-enhancer__style-options","layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->

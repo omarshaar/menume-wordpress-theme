@@ -34,64 +34,84 @@
         {
           "slug": "base",
           "name": "Base",
-          "color": "#FFFFFF"
+          "color": "#02010c"
         },
         {
           "slug": "contrast",
           "name": "Contrast",
-          "color": "#101828"
+          "color": "#FFFFFF"
         },
         {
           "slug": "muted",
           "name": "Muted",
-          "color": "#667085"
+          "color": "#97A3B4"
         },
         {
           "slug": "surface",
           "name": "Surface",
-          "color": "#F8FAFC"
+          "color": "#141414"
         },
         {
           "slug": "surface-alt",
           "name": "Surface Accent",
-          "color": "#EEF2FF"
+          "color": "#1C1C1C"
         },
         {
           "slug": "border",
           "name": "Border",
-          "color": "#E4E7EC"
+          "color": "#333333"
         },
         {
           "slug": "primary",
           "name": "Primary",
-          "color": "#635BFF"
+          "color": "#8BFF00"
         },
         {
           "slug": "primary-dark",
           "name": "Primary Dark",
-          "color": "#4F46E5"
+          "color": "#6ED600"
         },
         {
           "slug": "accent",
           "name": "Accent",
-          "color": "#12B8A6"
+          "color": "#B7FF4A"
+        },
+        {
+          "slug": "elevated",
+          "name": "Elevated",
+          "color": "#252525"
+        },
+        {
+          "slug": "text-secondary",
+          "name": "Text Secondary",
+          "color": "#D7DBE2"
         }
       ],
       "gradients": [
         {
           "slug": "brand",
           "name": "Brand",
-          "gradient": "linear-gradient(135deg, #635BFF 0%, #8B5CF6 52%, #12B8A6 100%)"
+          "gradient": "linear-gradient(135deg, #000000 0%, #1B3A05 55%, #102400 100%)"
         },
         {
           "slug": "soft-brand",
           "name": "Soft Brand",
-          "gradient": "linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 50%, #ECFDF9 100%)"
+          "gradient": "linear-gradient(135deg, #1C1C1C 0%, #141414 50%, #111111 100%)"
         },
         {
           "slug": "dark",
           "name": "Dark",
-          "gradient": "linear-gradient(135deg, #101828 0%, #1D2939 100%)"
+          "gradient": "linear-gradient(135deg, #000000 0%, #111111 100%)"
+        },
+        {
+          "slug": "accent-glow",
+          "name": "Accent Glow",
+          "gradient": "radial-gradient(circle, rgb(183 255 74 / 25%), transparent 70%)"
+        },
+        {
+          "slug": "product-glow",
+          "name": "Product Glow",
+          "gradient": "radial-gradient(circle, rgb(139 255 0 / 25%), transparent 70%)"
         }
       ]
     },
@@ -106,23 +126,23 @@
       "presets": [
         {
           "slug": "sm",
-          "name": "Small",
-          "shadow": "0 1px 2px rgba(16, 24, 40, 0.06)"
+          "name": "Subtle",
+          "shadow": "0 0 2px 1px rgb(0 0 0 / 8%)"
         },
         {
           "slug": "md",
-          "name": "Medium",
-          "shadow": "0 10px 30px rgba(16, 24, 40, 0.08)"
+          "name": "Pop",
+          "shadow": "0 4px 12px rgb(0 0 0 / 10%)"
         },
         {
           "slug": "lg",
-          "name": "Large",
-          "shadow": "0 24px 64px rgba(16, 24, 40, 0.12)"
+          "name": "Overlay",
+          "shadow": "0 12px 32px rgb(0 0 0 / 30%)"
         },
         {
           "slug": "brand",
-          "name": "Brand Glow",
-          "shadow": "0 16px 40px rgba(99, 91, 255, 0.24)"
+          "name": "Accent Glow",
+          "shadow": "0 16px 40px rgba(139, 255, 0, 0.24)"
         }
       ]
     },
@@ -183,7 +203,7 @@
         {
           "slug": "sans",
           "name": "Modern Sans",
-          "fontFamily": "Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, sans-serif"
+          "fontFamily": "\"IBM Plex Sans Arabic\", \"IBM Plex Sans\", sans-serif"
         },
         {
           "slug": "mono",
@@ -257,14 +277,14 @@
     "elements": {
       "button": {
         "border": {
-          "radius": "10px",
+          "radius": "6px",
           "style": "solid",
           "width": "1px",
           "color": "var(--wp--preset--color--primary)"
         },
         "color": {
           "background": "var(--wp--preset--color--primary)",
-          "text": "var(--wp--preset--color--base)"
+          "text": "#111111"
         },
         "spacing": {
           "padding": {
@@ -286,7 +306,7 @@
           },
           "color": {
             "background": "var(--wp--preset--color--primary-dark)",
-            "text": "var(--wp--preset--color--base)"
+            "text": "#111111"
           }
         }
       },
@@ -356,7 +376,7 @@
       "core/code": {
         "border": {
           "color": "var(--wp--preset--color--border)",
-          "radius": "10px",
+          "radius": "8px",
           "style": "solid",
           "width": "1px"
         },
@@ -430,6 +450,6 @@
         }
       }
     },
-    "css": "html{scroll-behavior:smooth}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}::selection{background:#DDD9FF;color:#101828}.menume-site-header{z-index:100;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}.menume-header-inner{position:relative;min-height:52px}.menume-header-brand{flex-shrink:0}.menume-header-brand .wp-block-site-title{font-size:1.25rem!important;line-height:1!important;margin:0}.menume-header-brand .wp-block-site-title a{color:var(--wp--preset--color--contrast)}.menume-header-nav{position:absolute;left:50%;transform:translateX(-50%)}.menume-header-nav .wp-block-navigation-item__content{color:var(--wp--preset--color--muted);white-space:nowrap;transition:color .2s ease}.menume-header-nav .wp-block-navigation-item__content:hover,.menume-header-nav .current-menu-item>.wp-block-navigation-item__content{color:var(--wp--preset--color--contrast)}.menume-header-actions{flex-shrink:0}.menume-header-actions .is-style-outline .wp-block-button__link{background:transparent;color:var(--wp--preset--color--contrast);border-color:var(--wp--preset--color--border);box-shadow:none}.menume-header-actions .is-style-outline .wp-block-button__link:hover{background:var(--wp--preset--color--surface);color:var(--wp--preset--color--contrast);border-color:var(--wp--preset--color--border)}.menume-page-main>.wp-block-post-title,.menume-entry-main>.wp-block-post-title{max-width:18ch;margin-bottom:0}.menume-page-main .wp-block-post-content,.menume-entry-main .wp-block-post-content{font-size:1.0625rem}.menume-page-main .wp-block-post-content>:first-child,.menume-entry-main .wp-block-post-content>:first-child{margin-top:0}@media(max-width:1024px){.menume-header-nav{position:static;margin-left:auto;transform:none}.menume-header-nav .wp-block-navigation__responsive-container.is-menu-open{padding:var(--wp--preset--spacing--40);background:var(--wp--preset--color--base);color:var(--wp--preset--color--contrast)}}@media(max-width:767px){.menume-header-actions{display:none}}@media(max-width:600px){.menume-page-main,.menume-entry-main{padding-top:var(--wp--preset--spacing--50)!important;padding-bottom:var(--wp--preset--spacing--60)!important}}"
+    "css": "html{scroll-behavior:smooth}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}::selection{background:#8BFF00;color:#111111}.menume-page-main>.wp-block-post-title,.menume-entry-main>.wp-block-post-title{max-width:18ch;margin-bottom:0}.menume-page-main .wp-block-post-content,.menume-entry-main .wp-block-post-content{font-size:1.0625rem}.menume-page-main .wp-block-post-content>:first-child,.menume-entry-main .wp-block-post-content>:first-child{margin-top:0}@media(max-width:600px){.menume-page-main,.menume-entry-main{padding-top:var(--wp--preset--spacing--50)!important;padding-bottom:var(--wp--preset--spacing--60)!important}}"
   }
 }

@@ -2,7 +2,7 @@
 /**
  * Title: Impressum
  * Slug: menume/legal-impressum
- * Description: Simple, editable Impressum draft for MenuMe.
+ * Description: Impressum for MenuMe / Eano.
  * Categories: menume-legal
  * Keywords: impressum, legal, recht, anbieterkennzeichnung, menume
  * Inserter: true
@@ -29,56 +29,40 @@
 		<h2 class="wp-block-heading"><?php echo esc_html__( 'Anbieter', 'menume' ); ?></h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"menume-impressum__placeholder"} -->
-		<p class="menume-impressum__placeholder"><?php echo esc_html__( '[VOLLSTÄNDIGER RECHTLICHER NAME / UNTERNEHMENSNAME]', 'menume' ); ?><br><?php echo esc_html__( '[RECHTSFORM, FALLS VORHANDEN]', 'menume' ); ?><br><?php echo esc_html__( '[VERTRETUNGSBERECHTIGTE PERSON, FALLS ERFORDERLICH]', 'menume' ); ?></p>
+		<!-- wp:paragraph -->
+		<p><?php echo esc_html__( 'Omar Shaar', 'menume' ); ?><br><?php echo esc_html__( 'handelnd unter Eano', 'menume' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"level":2} -->
 		<h2 class="wp-block-heading"><?php echo esc_html__( 'Anschrift', 'menume' ); ?></h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"menume-impressum__placeholder"} -->
-		<p class="menume-impressum__placeholder"><?php echo esc_html__( '[STRASSE UND HAUSNUMMER]', 'menume' ); ?><br><?php echo esc_html__( '[POSTLEITZAHL UND ORT]', 'menume' ); ?><br><?php echo esc_html__( '[LAND]', 'menume' ); ?></p>
+		<!-- wp:paragraph -->
+		<p><?php echo esc_html__( 'Stiftsplatz 5', 'menume' ); ?><br><?php echo esc_html__( '53111 Bonn', 'menume' ); ?><br><?php echo esc_html__( 'Deutschland', 'menume' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"level":2} -->
 		<h2 class="wp-block-heading"><?php echo esc_html__( 'Kontakt', 'menume' ); ?></h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"menume-impressum__placeholder"} -->
-		<p class="menume-impressum__placeholder"><?php echo esc_html__( 'Telefon: [TELEFONNUMMER]', 'menume' ); ?><br><?php echo esc_html__( 'E-Mail: [E-MAIL-ADRESSE]', 'menume' ); ?></p>
+		<!-- wp:paragraph -->
+		<p><?php echo esc_html__( 'E-Mail: info@eano.dev', 'menume' ); ?><br><?php echo esc_html__( 'Telefon: +49 176 45342588', 'menume' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"level":2} -->
-		<h2 class="wp-block-heading"><?php echo esc_html__( 'Registereintrag', 'menume' ); ?></h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"className":"menume-impressum__placeholder"} -->
-		<p class="menume-impressum__placeholder"><?php echo esc_html__( '[NUR FALLS VORHANDEN: REGISTERGERICHT, REGISTERART UND REGISTERNUMMER – SONST DIESEN ABSCHNITT LÖSCHEN]', 'menume' ); ?></p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2} -->
-		<h2 class="wp-block-heading"><?php echo esc_html__( 'Umsatzsteuer-ID', 'menume' ); ?></h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"className":"menume-impressum__placeholder"} -->
-		<p class="menume-impressum__placeholder"><?php echo esc_html__( '[NUR FALLS VORHANDEN: UMSATZSTEUER-IDENTIFIKATIONSNUMMER – SONST DIESEN ABSCHNITT LÖSCHEN]', 'menume' ); ?></p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2} -->
-		<h2 class="wp-block-heading"><?php echo esc_html__( 'Verantwortlich für redaktionelle Inhalte', 'menume' ); ?></h2>
+		<h2 class="wp-block-heading"><?php echo esc_html__( 'Umsatzsteuer', 'menume' ); ?></h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph -->
-		<p><?php echo esc_html__( 'Verantwortlich im Sinne von § 18 Abs. 2 MStV:', 'menume' ); ?></p>
+		<p><?php echo esc_html__( 'Kleinunternehmer gemäß § 19 UStG.', 'menume' ); ?><br><?php echo esc_html__( 'Eine Umsatzsteuer-Identifikationsnummer wurde beantragt und wird nach Erteilung ergänzt.', 'menume' ); ?></p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"menume-impressum__placeholder"} -->
-		<p class="menume-impressum__placeholder"><?php echo esc_html__( '[NAME UND VOLLSTÄNDIGE ANSCHRIFT – FALLS KEINE JOURNALISTISCH-REDAKTIONELLEN INHALTE VORHANDEN SIND, RECHTLICH PRÜFEN UND GEGEBENENFALLS ABSCHNITT LÖSCHEN]', 'menume' ); ?></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:heading {"level":2} -->
+		<h2 class="wp-block-heading"><?php echo esc_html__( 'Verantwortlich für den Inhalt', 'menume' ); ?></h2>
+		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"menume-impressum__draft"} -->
-		<p class="menume-impressum__draft"><?php echo esc_html__( 'Entwurf: Bitte alle markierten Angaben vervollständigen und rechtlich prüfen, bevor diese Seite veröffentlicht wird.', 'menume' ); ?></p>
+		<!-- wp:paragraph -->
+		<p><?php echo esc_html__( 'Omar Shaar', 'menume' ); ?><br><?php echo esc_html__( 'Stiftsplatz 5', 'menume' ); ?><br><?php echo esc_html__( '53111 Bonn', 'menume' ); ?><br><?php echo esc_html__( 'Deutschland', 'menume' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->

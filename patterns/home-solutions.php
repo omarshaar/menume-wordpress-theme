@@ -18,13 +18,13 @@
 			<!-- wp:group {"className":"menume-solutions__intro","layout":{"type":"constrained","justifyContent":"left"}} -->
 			<div class="wp-block-group menume-solutions__intro">
 				<!-- wp:paragraph {"className":"menume-solutions__eyebrow"} -->
-				<p class="menume-solutions__eyebrow"><?php echo esc_html__( 'ALLES FÜR DEIN DIGITALES MENÜ', 'menume' ); ?></p>
+				<p class="menume-solutions__eyebrow"><?php echo esc_html__( 'ALLES FÜR DEINE DIGITALE PRÄSENZ', 'menume' ); ?></p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":2,"className":"menume-solutions__title"} -->
-				<h2 class="wp-block-heading menume-solutions__title"><?php echo esc_html__( 'WENIGER AUFWAND. MEHR APPETIT.', 'menume' ); ?></h2>
+				<h2 class="wp-block-heading menume-solutions__title"><?php echo esc_html__( 'EIN RESTAURANT. EIN ARBEITSBEREICH.', 'menume' ); ?></h2>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph {"className":"menume-solutions__lead"} -->
-				<p class="menume-solutions__lead"><?php echo esc_html__( 'Von schnellen Änderungen bis zu KI-optimierten Food-Fotos: MenuMe macht deine Speisekarte einfacher, schöner und für jeden Gast verständlich.', 'menume' ); ?></p>
+				<p class="menume-solutions__lead"><?php echo esc_html__( 'Alles, was dein Restaurant braucht, um online besser auszusehen und zu funktionieren. Ersetze isolierte Einzellösungen durch eine Plattform, die ganz auf dein Restaurant und seine Inhalte zugeschnitten ist.', 'menume' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
@@ -46,12 +46,12 @@
 		<div class="wp-block-group menume-solutions__track">
 			<?php
 			$cards = array(
-				array( 'DIGITALE SPEISEKARTE', 'Speisekarte jederzeit aktualisieren', 'Passe Gerichte, Preise und Verfügbarkeit jederzeit an. Deine Änderungen sind sofort online und auf jedem Smartphone sichtbar.', 'LIVE', 'Heute geändert. Sofort sichtbar.', '01' ),
-				array( 'EINFACHER IMPORT', 'Bestehende Karte schnell importieren', 'Lade deine vorhandene Speisekarte hoch, prüfe die erkannten Inhalte und übernimm sie direkt – ohne jedes Gericht neu einzutippen.', 'IMPORT', 'Weniger tippen. Schneller starten.', '02' ),
-				array( 'KI-ÜBERSETZUNG', 'Internationale Gäste erreichen', 'Übersetze Namen und Beschreibungen mit wenigen Klicks. So finden sich auch internationale Gäste schnell in deinem Menü zurecht.', 'DE → EN', 'Ein Menü. Mehrere Sprachen.', '03' ),
-				array( 'FOOD-FOTOS MIT KI', 'Food-Fotos mit KI verfeinern', 'Verbessere Licht, Farben und Bildwirkung deiner Food-Fotos mit KI – für Gerichte, die schon auf dem Display überzeugen.', 'VORHER → NACHHER', 'Aus deinem Foto wird ein Hingucker.', '04' ),
-				array( 'ALLERGENE & TAGS', 'Allergene klar kommunizieren', 'Kennzeichne Allergene und Eigenschaften direkt am Gericht. MenuMe erstellt daraus eine übersichtliche Tabelle zum Anzeigen und Ausdrucken.', 'A–Z', 'Einmal pflegen. Klar kommunizieren.', '05' ),
-				array( 'DESIGN & MARKE', 'Design passend zur eigenen Marke', 'Wähle ein modernes Design und passe Logo, Farben und Inhalte an dein Restaurant an – ohne technische oder gestalterische Vorkenntnisse.', 'DEIN LOOK', 'Deine Marke. Dein Menü.', '06' ),
+				array( 'DIGITALE SPEISEKARTE', 'Speisekarte in Sekunden aktualisieren', 'Preise, Gerichte oder Verfügbarkeit ändern – die Aktualisierung ist sofort für jeden Gast auf dem Handy sichtbar. Kein Neudruck, keine Wartezeit.', 'LIVE', 'Heute geändert. Sofort sichtbar.', '01' ),
+				array( 'WEBSITE & BIO-SEITE', 'Dein digitaler Auftritt, fertig gestaltet', 'Eine eigene Landingpage für dein Restaurant und eine Bio-Seite mit allen wichtigen Links – Öffnungszeiten, Standort, Social Media und mehr, an einem Ort.', 'PROFIL', 'Ein Link. Alles für deine Gäste.', '02' ),
+				array( 'KI-ASSISTENT', 'Deine Speisekarte per KI steuern', 'Übersetzen, Gerichte erstellen, bearbeiten oder löschen – sag es einfach, dein KI-Assistent erledigt den Rest, ganz ohne Klick für Klick.', 'DE → EN', 'Ein Befehl. Viele Aufgaben.', '03' ),
+				array( 'FOOD-FOTOS MIT KI', 'Aus einem Handyfoto wird ein Verkaufsargument', 'Lade ein Foto deines Gerichts hoch – MenuMe verbessert Licht, Farben und Wirkung automatisch. Professionelle Optik, ganz ohne Fotostudio.', 'VORHER → NACHHER', 'Aus deinem Foto wird ein Hingucker.', '04' ),
+				array( 'TISCHRESERVIERUNGEN', 'Reservierungen automatisch organisiert', 'Gäste reservieren online, du behältst jederzeit den Überblick über freie Tische – ohne Anrufe, ohne Zettelwirtschaft.', '19:30', 'Frei. Reserviert. Automatisch.', '05' ),
+				array( 'DESIGN & MARKE', 'Design passend zur eigenen Marke', 'Wähle ein modernes Design und passe Logo, Farben und Inhalte an dein Restaurant an – ganz ohne technische oder gestalterische Vorkenntnisse.', 'DEIN LOOK', 'Deine Marke. Dein Menü.', '06' ),
 			);
 
 			foreach ( $cards as $card ) :
@@ -86,9 +86,9 @@
 							<?php elseif ( '02' === $card[5] ) : ?>
 								<!-- wp:group {"className":"menume-solutions__demo menume-solutions__demo--import","layout":{"type":"default"}} -->
 								<div class="wp-block-group menume-solutions__demo menume-solutions__demo--import">
-									<!-- wp:paragraph {"className":"is-file"} --><p class="is-file">PDF</p><!-- /wp:paragraph -->
+									<!-- wp:paragraph {"className":"is-file"} --><p class="is-file">PROFIL</p><!-- /wp:paragraph -->
 									<!-- wp:paragraph {"className":"is-arrow"} --><p class="is-arrow">→</p><!-- /wp:paragraph -->
-									<!-- wp:group {"className":"is-result","layout":{"type":"default"}} --><div class="wp-block-group is-result"><!-- wp:paragraph --><p>6 Kategorien</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>42 Gerichte erkannt</p><!-- /wp:paragraph --></div><!-- /wp:group -->
+									<!-- wp:group {"className":"is-result","layout":{"type":"default"}} --><div class="wp-block-group is-result"><!-- wp:paragraph --><p>Eigene Website</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Bio-Seite mit allen Links</p><!-- /wp:paragraph --></div><!-- /wp:group -->
 								</div>
 								<!-- /wp:group -->
 							<?php elseif ( '03' === $card[5] ) : ?>
@@ -110,9 +110,9 @@
 							<?php elseif ( '05' === $card[5] ) : ?>
 								<!-- wp:group {"className":"menume-solutions__demo menume-solutions__demo--allergens","layout":{"type":"default"}} -->
 								<div class="wp-block-group menume-solutions__demo menume-solutions__demo--allergens">
-									<!-- wp:group {"className":"menume-solutions__allergen-row","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} --><div class="wp-block-group menume-solutions__allergen-row"><!-- wp:paragraph --><p>Pasta Primavera</p><!-- /wp:paragraph --><!-- wp:paragraph {"className":"is-tags"} --><p class="is-tags">A · G</p><!-- /wp:paragraph --></div><!-- /wp:group -->
-									<!-- wp:group {"className":"menume-solutions__allergen-row","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} --><div class="wp-block-group menume-solutions__allergen-row"><!-- wp:paragraph --><p>Caesar Salad</p><!-- /wp:paragraph --><!-- wp:paragraph {"className":"is-tags"} --><p class="is-tags">C · G</p><!-- /wp:paragraph --></div><!-- /wp:group -->
-									<!-- wp:paragraph {"className":"is-print"} --><p class="is-print">⌕ Tabelle anzeigen &amp; drucken</p><!-- /wp:paragraph -->
+									<!-- wp:group {"className":"menume-solutions__allergen-row","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} --><div class="wp-block-group menume-solutions__allergen-row"><!-- wp:paragraph --><p>Tisch für 2 Personen</p><!-- /wp:paragraph --><!-- wp:paragraph {"className":"is-tags"} --><p class="is-tags">✓ Bestätigt</p><!-- /wp:paragraph --></div><!-- /wp:group -->
+									<!-- wp:group {"className":"menume-solutions__allergen-row","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} --><div class="wp-block-group menume-solutions__allergen-row"><!-- wp:paragraph --><p>Tisch für 4 Personen</p><!-- /wp:paragraph --><!-- wp:paragraph {"className":"is-tags"} --><p class="is-tags">⏳ Warteliste</p><!-- /wp:paragraph --></div><!-- /wp:group -->
+									<!-- wp:paragraph {"className":"is-print"} --><p class="is-print">⌕ Alle Reservierungen verwalten</p><!-- /wp:paragraph -->
 								</div>
 								<!-- /wp:group -->
 							<?php else : ?>

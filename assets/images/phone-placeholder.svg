@@ -3,27 +3,27 @@
   <desc id="description">Replace this placeholder with the restaurant menu screenshot.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#eef2ff"/>
+      <stop offset="0" stop-color="#fff1ec"/>
       <stop offset="1" stop-color="#ffffff"/>
     </linearGradient>
   </defs>
   <rect width="390" height="844" fill="url(#background)"/>
-  <circle cx="195" cy="104" r="42" fill="#635bff"/>
+  <circle cx="195" cy="104" r="42" fill="#F5D926"/>
   <rect x="118" y="168" width="154" height="18" rx="9" fill="#101828"/>
   <rect x="40" y="226" width="310" height="152" rx="22" fill="#ffffff"/>
-  <rect x="58" y="244" width="116" height="116" rx="16" fill="#ddd9ff"/>
+  <rect x="58" y="244" width="116" height="116" rx="16" fill="#ffe4dc"/>
   <rect x="194" y="260" width="120" height="14" rx="7" fill="#101828"/>
   <rect x="194" y="294" width="90" height="10" rx="5" fill="#98a2b3"/>
-  <rect x="194" y="330" width="54" height="14" rx="7" fill="#635bff"/>
+  <rect x="194" y="330" width="54" height="14" rx="7" fill="#F5D926"/>
   <rect x="40" y="402" width="310" height="152" rx="22" fill="#ffffff"/>
   <rect x="58" y="420" width="116" height="116" rx="16" fill="#d1fae5"/>
   <rect x="194" y="436" width="120" height="14" rx="7" fill="#101828"/>
   <rect x="194" y="470" width="90" height="10" rx="5" fill="#98a2b3"/>
-  <rect x="194" y="506" width="54" height="14" rx="7" fill="#12b8a6"/>
+  <rect x="194" y="506" width="54" height="14" rx="7" fill="#16a34a"/>
   <rect x="40" y="578" width="310" height="152" rx="22" fill="#ffffff"/>
   <rect x="58" y="596" width="116" height="116" rx="16" fill="#fee2e2"/>
   <rect x="194" y="612" width="120" height="14" rx="7" fill="#101828"/>
   <rect x="194" y="646" width="90" height="10" rx="5" fill="#98a2b3"/>
-  <rect x="194" y="682" width="54" height="14" rx="7" fill="#635bff"/>
+  <rect x="194" y="682" width="54" height="14" rx="7" fill="#F5D926"/>
   <text x="195" y="790" fill="#667085" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Menü-Screenshot ersetzen</text>
 </svg>
