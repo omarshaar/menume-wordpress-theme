@@ -925,6 +925,18 @@ a.menume-header-icon-btn:hover {
 	text-wrap: balance;
 }
 
+.menume-home-hero__title-semantic {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
 .menume-home-hero__title.is-animated-title {
 	min-height: 2.18em;
 }
@@ -1674,6 +1686,9 @@ a.menume-header-icon-btn:hover {
 }
 
 .menume-solutions__arrow .wp-block-button__link {
+	appearance: none;
+	font-family: inherit;
+	cursor: pointer;
 	display: grid;
 	width: 3.25rem;
 	height: 3.25rem;

@@ -196,7 +196,7 @@
 				<!-- wp:buttons {"className":"menume-pricing__actions"} -->
 				<div class="wp-block-buttons menume-pricing__actions">
 					<!-- wp:button {"width":100,"className":"menume-pricing__button is-outline","style":{"border":{"width":"1px"}}} -->
-					<div class="wp-block-button has-custom-width wp-block-button__width-100 menume-pricing__button is-outline"><a class="wp-block-button__link wp-element-button" href="/contact" style="border-width:1px"><?php echo esc_html__( 'Lösung besprechen', 'menume' ); ?> →</a></div>
+					<div class="wp-block-button has-custom-width wp-block-button__width-100 menume-pricing__button is-outline"><a class="wp-block-button__link wp-element-button" href="/kontakt" style="border-width:1px"><?php echo esc_html__( 'Lösung besprechen', 'menume' ); ?> →</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->

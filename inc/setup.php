@@ -327,7 +327,7 @@ function menume_replace_home_hero_contact_cta( $content ) {
 		'~(<div\b[^>]*\bmenume-home-hero__actions\b[^>]*>.*?</div>\s*</div>)~is',
 		function ( $matches ) use ( $whatsapp_url, $label ) {
 			return preg_replace(
-				'~<a\b([^>]*)\bhref=(["\'])(?:/contact/?|https?://[^"\']*/contact/?)(["\'])([^>]*)>(.*?)</a>~is',
+				'~<a\b([^>]*)\bhref=(["\'])(?:/(?:contact|kontakt)/?|https?://[^"\']*/(?:contact|kontakt)/?)(["\'])([^>]*)>(.*?)</a>~is',
 				'<a$1href="' . esc_url( $whatsapp_url ) . '"$4 target="_blank" rel="noopener"><svg class="menume-whatsapp-button__icon icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"></path></svg><span>' . esc_html( $label ) . '</span></a>',
 				$matches[1],
 				1
@@ -487,8 +487,114 @@ function menume_update_process_step_copy( $content ) {
 add_filter( 'the_content', 'menume_update_process_step_copy', 23 );
 
 /**
- * Split the front-page hero title into a lifted first word and a typewritten
- * second line. This runs on rendered content so it also covers front-page
+ * Add semantic relationships and accessible controls to the rendered home
+ * solutions section without changing its saved Gutenberg block markup.
+ *
+ * @param string $content Rendered page content.
+ * @return string
+ */
+function menume_improve_home_solutions_markup( $content ) {
+	if ( is_admin() || ! is_front_page() || false === strpos( $content, 'menume-solutions' ) ) {
+		return $content;
+	}
+
+	$lang = function_exists( 'pll_current_language' ) ? pll_current_language( 'slug' ) : 'de';
+	$labels = array(
+		'de' => array( 'previous' => 'Vorherige Lösung', 'next' => 'Nächste Lösung' ),
+		'en' => array( 'previous' => 'Previous solution', 'next' => 'Next solution' ),
+		'ar' => array( 'previous' => 'الحل السابق', 'next' => 'الحل التالي' ),
+	);
+	$active_labels = $labels[ $lang ] ?? $labels['de'];
+
+	$updated = preg_replace_callback(
+		'~<section\b(?=[^>]*\bmenume-solutions\b)[^>]*>.*?</section>~is',
+		function ( $matches ) use ( $active_labels ) {
+			$processor  = new WP_HTML_Tag_Processor( $matches[0] );
+			$card_index = 0;
+
+			while ( $processor->next_tag() ) {
+				if ( $processor->has_class( 'menume-solutions' ) ) {
+					$processor->set_attribute( 'aria-labelledby', 'solutions-title' );
+				} elseif ( $processor->has_class( 'menume-solutions__title' ) ) {
+					$processor->set_attribute( 'id', 'solutions-title' );
+				} elseif ( $processor->has_class( 'menume-solutions__track' ) ) {
+					$processor->set_attribute( 'id', 'solutions-track' );
+					$processor->set_attribute( 'role', 'list' );
+				} elseif ( $processor->has_class( 'menume-solutions__card' ) ) {
+					$card_index++;
+					$processor->set_attribute( 'role', 'listitem' );
+					$processor->set_attribute( 'aria-labelledby', 'solution-title-' . $card_index );
+				} elseif ( $processor->has_class( 'menume-solutions__card-title' ) ) {
+					$processor->set_attribute( 'id', 'solution-title-' . $card_index );
+				} elseif ( $processor->has_class( 'menume-solutions__visual' ) ) {
+					$processor->set_attribute( 'aria-hidden', 'true' );
+				}
+			}
+
+			$section  = $processor->get_updated_html();
+			$controls = array(
+				'previous' => $active_labels['previous'],
+				'next'     => $active_labels['next'],
+			);
+
+			foreach ( $controls as $direction => $label ) {
+				$section = preg_replace_callback(
+					'~(<div\b(?=[^>]*\bmenume-solutions__arrow--' . $direction . '\b)[^>]*>\s*)<a\b(?=[^>]*\bwp-block-button__link\b)([^>]*)>(.*?)</a>~is',
+					function ( $button_matches ) use ( $label ) {
+						$attributes = preg_replace( '/\s+href=(["\']).*?\1/is', '', $button_matches[2] );
+						$attributes = preg_replace( '/\s+(?:aria-label|aria-controls|type)=(["\']).*?\1/is', '', $attributes );
+
+						return $button_matches[1]
+							. '<button type="button"' . $attributes
+							. ' aria-label="' . esc_attr( $label ) . '" aria-controls="solutions-track">'
+							. $button_matches[3] . '</button>';
+					},
+					$section,
+					1
+				);
+			}
+
+			return $section;
+		},
+		$content,
+		1
+	);
+
+	return is_string( $updated ) ? $updated : $content;
+}
+add_filter( 'the_content', 'menume_improve_home_solutions_markup', 25 );
+
+/**
+ * Remove a legacy inline Content Studio script that was saved as visible text.
+ * The maintained animation is loaded from assets/js/home-content-studio.js.
+ *
+ * @param string $content Rendered page content.
+ * @return string
+ */
+function menume_remove_legacy_content_studio_script( $content ) {
+	if (
+		is_admin()
+		|| ! is_front_page()
+		|| false === strpos( $content, 'menume-content-studio' )
+		|| false === strpos( $content, 'function initMcsDemo' )
+	) {
+		return $content;
+	}
+
+	$updated = preg_replace(
+		'~\s*\(function\s*\(\)\s*\{\s*function\s+initMcsDemo\b.*?\}\)\(\);\s*~s',
+		'',
+		$content,
+		1
+	);
+
+	return is_string( $updated ) ? $updated : $content;
+}
+add_filter( 'the_content', 'menume_remove_legacy_content_studio_script', 24 );
+
+/**
+ * Split the front-page hero title into a lifted two-word lead phrase and a
+ * typewritten second line. This runs on rendered content so it also covers front-page
  * block markup that was saved before the pattern file changed.
  *
  * @param string $content Rendered page content.
@@ -505,7 +611,7 @@ function menume_prepare_home_hero_title( $content ) {
 			$attrs = $matches[1];
 			$inner = $matches[2];
 
-			if ( false !== strpos( $inner, 'menume-home-hero__title-word' ) ) {
+			if ( false !== strpos( $inner, 'menume-home-hero__title-semantic' ) ) {
 				return $matches[0];
 			}
 
@@ -518,12 +624,14 @@ function menume_prepare_home_hero_title( $content ) {
 				return $matches[0];
 			}
 
-			if ( ! preg_match( '/^(\S+)(?:\s+(.+))?$/us', $plain_title, $parts ) || empty( $parts[2] ) ) {
+			$title_pattern = '/^(\S+\s+\S+)(?:\s+(.+))?$/us';
+
+			if ( ! preg_match( $title_pattern, $plain_title, $parts ) || empty( $parts[2] ) ) {
 				return $matches[0];
 			}
 
-			$first_word = $parts[1];
-			$rest_text  = $parts[2];
+			$lead_text = $parts[1];
+			$rest_text = $parts[2];
 
 			if ( preg_match( '/\sclass=(["\'])(.*?)\1/is', $attrs, $class_match ) ) {
 				$classes = preg_split( '/\s+/', trim( $class_match[2] ) );
@@ -543,19 +651,11 @@ function menume_prepare_home_hero_title( $content ) {
 				$attrs .= ' class="menume-home-hero__title is-animated-title"';
 			}
 
-			if ( preg_match( '/\saria-label=(["\']).*?\1/is', $attrs ) ) {
-				$attrs = preg_replace(
-					'/\saria-label=(["\']).*?\1/is',
-					' aria-label="' . esc_attr( $plain_title ) . '"',
-					$attrs,
-					1
-				);
-			} else {
-				$attrs .= ' aria-label="' . esc_attr( $plain_title ) . '"';
-			}
+			$attrs = preg_replace( '/\saria-label=(["\']).*?\1/is', '', $attrs, 1 );
 
-			$animated_title  = '<span class="menume-home-hero__title-visual" aria-hidden="true">';
-			$animated_title .= '<span class="menume-home-hero__title-word">' . esc_html( $first_word ) . '</span>';
+			$animated_title  = '<span class="screen-reader-text menume-home-hero__title-semantic">' . esc_html( $plain_title ) . '</span>';
+			$animated_title .= '<span class="menume-home-hero__title-visual" aria-hidden="true">';
+			$animated_title .= '<span class="menume-home-hero__title-word">' . esc_html( $lead_text ) . '</span>';
 			$animated_title .= '<span class="menume-home-hero__title-line" data-menume-typewriter="' . esc_attr( $rest_text ) . '">';
 			$animated_title .= '<span class="menume-home-hero__title-typed"></span>';
 			$animated_title .= '</span></span>';

@@ -14,17 +14,17 @@
 			return;
 		}
 
-		// Add accessibility attributes at runtime so Gutenberg's saved block
-		// markup remains valid and exactly matches the block serialization.
+		// Runtime behavior complements the semantic server-rendered markup.
 		track.setAttribute( 'tabindex', '0' );
-		track.setAttribute( 'aria-label', 'MenuMe Lösungen' );
-		previous.setAttribute( 'aria-label', 'Vorherige Lösung' );
-		next.setAttribute( 'aria-label', 'Nächste Lösung' );
 
 		const updateControls = () => {
 			const end = Math.max( 0, track.scrollWidth - track.clientWidth );
-			previous.setAttribute( 'aria-disabled', track.scrollLeft <= 2 ? 'true' : 'false' );
-			next.setAttribute( 'aria-disabled', track.scrollLeft >= end - 2 ? 'true' : 'false' );
+			const atStart = track.scrollLeft <= 2;
+			const atEnd = track.scrollLeft >= end - 2;
+			previous.disabled = atStart;
+			next.disabled = atEnd;
+			previous.setAttribute( 'aria-disabled', atStart ? 'true' : 'false' );
+			next.setAttribute( 'aria-disabled', atEnd ? 'true' : 'false' );
 		};
 
 		const move = ( direction ) => {

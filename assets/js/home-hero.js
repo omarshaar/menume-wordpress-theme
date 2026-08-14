@@ -37,16 +37,17 @@
 
 	const prefersReducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 
-	const splitFirstWord = ( text ) => {
+	const splitLeadPhrase = ( text ) => {
 		const normalized = text.replace( /\s+/g, ' ' ).trim();
-		const parts = normalized.match( /^(\S+)(?:\s+([\s\S]+))?$/u );
+		const pattern = /^(\S+\s+\S+)(?:\s+([\s\S]+))?$/u;
+		const parts = normalized.match( pattern );
 
 		if ( ! parts || ! parts[ 2 ] ) {
 			return null;
 		}
 
 		return {
-			firstWord: parts[ 1 ],
+			leadText: parts[ 1 ],
 			restText: parts[ 2 ],
 			fullText: normalized,
 		};
@@ -67,25 +68,29 @@
 			return;
 		}
 
-		const titleParts = splitFirstWord( title.textContent || '' );
+		const titleParts = splitLeadPhrase( title.textContent || '' );
 
 		if ( ! titleParts ) {
 			return;
 		}
 
 		const visual = document.createElement( 'span' );
-		const firstWord = document.createElement( 'span' );
+		const leadPhrase = document.createElement( 'span' );
 		const line = document.createElement( 'span' );
 		const typed = document.createElement( 'span' );
 
 		title.classList.add( 'is-animated-title' );
-		title.setAttribute( 'aria-label', titleParts.fullText );
+		title.removeAttribute( 'aria-label' );
+
+		const semantic = document.createElement( 'span' );
+		semantic.className = 'screen-reader-text menume-home-hero__title-semantic';
+		semantic.textContent = titleParts.fullText;
 
 		visual.className = 'menume-home-hero__title-visual';
 		visual.setAttribute( 'aria-hidden', 'true' );
 
-		firstWord.className = 'menume-home-hero__title-word';
-		firstWord.textContent = titleParts.firstWord;
+		leadPhrase.className = 'menume-home-hero__title-word';
+		leadPhrase.textContent = titleParts.leadText;
 
 		line.className = 'menume-home-hero__title-line';
 		line.dataset.menumeTypewriter = titleParts.restText;
@@ -93,8 +98,8 @@
 		typed.className = 'menume-home-hero__title-typed';
 
 		line.appendChild( typed );
-		visual.append( firstWord, line );
-		title.replaceChildren( visual );
+		visual.append( leadPhrase, line );
+		title.replaceChildren( semantic, visual );
 	};
 
 	const typeHeroTitle = ( title ) => {

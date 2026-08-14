@@ -28,7 +28,7 @@
 			<!-- /wp:button -->
 
 			<!-- wp:button {"className":"menume-final-cta__secondary is-style-outline"} -->
-			<div class="wp-block-button menume-final-cta__secondary is-style-outline"><a class="wp-block-button__link wp-element-button" href="/contact"><?php echo esc_html__( 'Mit uns sprechen', 'menume' ); ?></a></div>
+			<div class="wp-block-button menume-final-cta__secondary is-style-outline"><a class="wp-block-button__link wp-element-button" href="/kontakt"><?php echo esc_html__( 'Mit uns sprechen', 'menume' ); ?></a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

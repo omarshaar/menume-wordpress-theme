@@ -162,7 +162,7 @@
 		<!-- wp:buttons {"className":"menume-about__actions","layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons menume-about__actions">
 			<!-- wp:button {"className":"menume-about__button"} -->
-			<div class="wp-block-button menume-about__button"><a class="wp-block-button__link wp-element-button" href="/contact/"><?php echo esc_html__( 'Kontakt aufnehmen', 'menume' ); ?>&nbsp;→</a></div>
+			<div class="wp-block-button menume-about__button"><a class="wp-block-button__link wp-element-button" href="/kontakt/"><?php echo esc_html__( 'Kontakt aufnehmen', 'menume' ); ?>&nbsp;→</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

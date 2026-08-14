@@ -24,7 +24,7 @@
 				<h2 class="wp-block-heading menume-solutions__title"><?php echo esc_html__( 'EIN RESTAURANT. EIN ARBEITSBEREICH.', 'menume' ); ?></h2>
 				<!-- /wp:heading -->
 				<!-- wp:paragraph {"className":"menume-solutions__lead"} -->
-				<p class="menume-solutions__lead"><?php echo esc_html__( 'Alles, was dein Restaurant braucht, um online besser auszusehen und zu funktionieren. Ersetze isolierte Einzellösungen durch eine Plattform, die ganz auf dein Restaurant und seine Inhalte zugeschnitten ist.', 'menume' ); ?></p>
+				<p class="menume-solutions__lead"><?php echo esc_html__( 'Digitale Speisekarte, Website, Inhalte und Reservierungen: Mit MenuMe verwaltest du deinen gesamten digitalen Auftritt zentral an einem Ort.', 'menume' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
